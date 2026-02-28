@@ -1,7 +1,7 @@
 import cv2
 from ultralytics import YOLO
 
-# 1. Load the fastest model
+# 1. Load the fastest model yolov8n
 model = YOLO('yolov8n.pt') 
 
 video_path = "Problem Statement Scenario1.mp4" 
@@ -13,7 +13,7 @@ fps = int(cap.get(cv2.CAP_PROP_FPS))
 out = cv2.VideoWriter('bag_counter_method2.mp4', cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
 
 # --- CONFIGURATION ---
-# Line at 60% (Right in the middle of their walking path)
+# Line at 50% (Right in the middle of the video)
 line_x = int(width * 0.5) 
 bag_counter = 0
 counted_ids = set()
@@ -67,4 +67,5 @@ while cap.isOpened():
 cap.release()
 out.release()
 cv2.destroyAllWindows()
+
 print(f"Final Count: {bag_counter}")
