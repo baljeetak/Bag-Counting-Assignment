@@ -23,8 +23,6 @@ while cap.isOpened():
         break
 
     # 2. TRACKING WITH AGNOSTIC NMS
-    # agnostic_nms=True forces the AI to detect the bag EVEN IF it overlaps with the human
-    # conf=0.08 is very low, ensuring we catch faint/unclear bags
     results = model.track(frame, persist=True, conf=0.08, iou=0.5, agnostic_nms=True)
 
     if results[0].boxes.id is not None:
@@ -50,9 +48,6 @@ while cap.isOpened():
             if cls in [24, 26, 28]: 
                 is_bag = True
                 
-            # Condition B: Unlabeled object filter
-            # We removed the strict aspect ratio. Now we just check if it's 
-            # big enough to be a bag, but smaller than a full-grown person
             elif area > 500 and h < (height * 0.65): 
                 is_bag = True
 
@@ -79,4 +74,5 @@ while cap.isOpened():
 cap.release()
 out.release()
 cv2.destroyAllWindows()
+
 print(f"Final Count: {bag_counter}")
