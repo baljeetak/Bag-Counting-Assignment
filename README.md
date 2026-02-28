@@ -1,4 +1,4 @@
-# Aivilon CV Assignment: Industrial Bag Counting Analytics
+#CV Assignment: Bag Counting Analytics
 **Candidate:** Baljeet
 
 ## 📌 Overview & Methodology
@@ -15,7 +15,7 @@ To demonstrate both my **technical CV manipulation skills** and my **practical p
 
 * **How it works:** I bypassed standard class filters and built a custom Spatial Heuristic Filter. The code actively ignores humans and vehicles, detecting all "unlabeled" moving objects. It then calculates the Area (`w * h`) and applies maximum dimension constraints to isolate the gunny sacks from background noise. 
 * **Why include this?** It proves my ability to manipulate YOLO outputs, handle Non-Maximum Suppression (NMS) parameters, and apply geometric constraints to force a model to see unclassified objects.
-* **The Limitation:** While technically complex, this model achieves ~80% accuracy. The pre-trained model inevitably drops bounding boxes due to severe occlusion (when the bag merges with the worker's torso). 
+* **The Limitation:** While technically complex, this model achieves ~60% To ~80% accuracy. The pre-trained model inevitably drops bounding boxes due to severe occlusion (when the bag merges with the worker's torso). 
 
 ---
 
@@ -28,15 +28,8 @@ To demonstrate both my **technical CV manipulation skills** and my **practical p
 
 ---
 
-## 🔮 Path to Full Production
-While Model 2 is the perfect immediate workaround for manual loading, a fully autonomous production system (e.g., counting bags on a conveyor belt without humans) requires a targeted approach. 
-
-My next steps for deployment would be:
-1. Extract ~300-500 frames from these specific camera angles.
-2. Manually annotate the gunny sacks.
-3. Perform Transfer Learning to fine-tune a `YOLOv8s` model to create a dedicated 'Gunny Sack' class, achieving 99%+ direct-object accuracy.
-
 ## 📂 Repository Contents
 * `bag_counter_method1.py` - R&D script using geometric bounding-box filtering.
 * `bag_counter_method2.py` - Production script using 100% accurate Proxy Tracking.
-* `Output_Videos/` - Rendered demonstrations of both tracking logics.
+*Output link-
+https://drive.google.com/drive/folders/1tuJnpDDVDSqIRXbI_i_KfUbgpLaX_WMc?usp=sharing
